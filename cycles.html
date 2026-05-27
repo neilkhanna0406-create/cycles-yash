@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{width:100%;height:100%;overflow:hidden;background:transparent;}
+.banner{width:100%;height:100vh;overflow:hidden;position:relative;background:linear-gradient(180deg,#071a07 0%,#0f2a18 50%,#071a0f 100%);}
+.cycle-ring{position:absolute;border-radius:50%;animation:cring linear infinite;}
+@keyframes cring{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+.waterdrop{position:absolute;border-radius:50% 50% 50% 50% / 40% 40% 60% 60%;animation:wdrop ease-in-out infinite;}
+@keyframes wdrop{0%{transform:translateY(-10px);opacity:0;}20%{opacity:.9;}80%{opacity:.9;}100%{transform:translateY(110vh);opacity:0;}}
+.bubble{position:absolute;border-radius:50%;animation:bubbleup ease-in-out infinite;}
+@keyframes bubbleup{0%{transform:translateY(0);opacity:.55;}100%{transform:translateY(-110vh);opacity:0;}}
+.leaf{position:absolute;border-radius:50% 0 50% 0;animation:sway 4s ease-in-out infinite;transform-origin:bottom center;}
+.leafr{border-radius:0 50% 0 50%;}
+@keyframes sway{0%,100%{transform:rotate(-8deg);}50%{transform:rotate(8deg);}}
+.floater{position:absolute;border-radius:50%;opacity:0;animation:floatup 5s ease-in-out infinite;}
+@keyframes floatup{0%{opacity:0;transform:translateY(0);}40%{opacity:.6;}100%{opacity:0;transform:translateY(-90px);}}
+@keyframes wavemove{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+.tw{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;z-index:20;white-space:nowrap;}
+.ey{font-family:Georgia,serif;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:rgba(100,220,120,.85);margin-bottom:6px;animation:fu .8s ease both;}
+.mt{font-family:Georgia,serif;font-weight:700;color:#fff;font-size:52px;line-height:1.1;animation:fu .8s ease .15s both;text-shadow:0 2px 20px rgba(0,0,0,.9);}
+.mt span{color:#64dc78;}
+.br{height:3px;background:#64dc78;border-radius:2px;margin:8px auto 0;animation:gb 1s ease .3s both;}
+@keyframes fu{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+@keyframes gb{from{width:0;}to{width:60px;}}
+</style>
+</head>
+<body>
+<div class="banner">
+  <!-- spinning rings left -->
+  <div class="cycle-ring" style="width:110px;height:110px;left:3%;top:50%;margin-top:-55px;border:2px solid rgba(100,220,120,.2);animation-duration:9s;"></div>
+  <div class="cycle-ring" style="width:68px;height:68px;left:3%;top:50%;margin-top:-34px;margin-left:21px;border:2px solid rgba(80,200,100,.14);animation-duration:5s;animation-direction:reverse;"></div>
+  <!-- spinning rings right -->
+  <div class="cycle-ring" style="width:110px;height:110px;right:3%;top:50%;margin-top:-55px;border:2px solid rgba(100,220,120,.2);animation-duration:11s;animation-direction:reverse;"></div>
+  <div class="cycle-ring" style="width:68px;height:68px;right:3%;top:50%;margin-top:-34px;margin-right:21px;border:2px solid rgba(80,200,100,.14);animation-duration:6s;"></div>
+  <!-- water drops -->
+  <div class="waterdrop" style="width:10px;height:15px;background:rgba(80,200,100,.75);left:24%;top:-14px;animation-duration:2.4s;animation-delay:0s;"></div>
+  <div class="waterdrop" style="width:7px;height:11px;background:rgba(100,220,120,.7);left:38%;top:-14px;animation-duration:1.9s;animation-delay:.7s;"></div>
+  <div class="waterdrop" style="width:11px;height:16px;background:rgba(80,200,100,.75);left:55%;top:-14px;animation-duration:2.7s;animation-delay:1.4s;"></div>
+  <div class="waterdrop" style="width:8px;height:12px;background:rgba(100,220,120,.7);left:70%;top:-14px;animation-duration:2.1s;animation-delay:.4s;"></div>
+  <!-- bubbles rising -->
+  <div class="bubble" style="width:12px;height:12px;border:1.5px solid rgba(100,220,120,.4);left:10%;bottom:8%;animation-duration:4s;animation-delay:0s;"></div>
+  <div class="bubble" style="width:8px;height:8px;border:1.5px solid rgba(80,200,100,.4);left:20%;bottom:5%;animation-duration:3.5s;animation-delay:.8s;"></div>
+  <div class="bubble" style="width:14px;height:14px;border:1.5px solid rgba(100,220,120,.4);left:75%;bottom:6%;animation-duration:4.5s;animation-delay:1.2s;"></div>
+  <div class="bubble" style="width:9px;height:9px;border:1.5px solid rgba(80,200,100,.4);right:12%;bottom:9%;animation-duration:3.8s;animation-delay:2s;"></div>
+  <!-- leaves -->
+  <div class="leaf" style="width:14px;height:18px;background:#3a8c2a;left:18%;top:12%;animation-delay:.2s;"></div>
+  <div class="leaf leafr" style="width:14px;height:18px;background:#4aaa35;right:18%;top:10%;animation-delay:.8s;"></div>
+  <!-- wave at bottom -->
+  <div style="position:absolute;bottom:0;left:0;width:100%;height:22px;overflow:hidden;">
+    <svg width="200%" height="22" viewBox="0 0 800 22" style="animation:wavemove 4s linear infinite;" preserveAspectRatio="none">
+      <path d="M0 11 Q100 0 200 11 Q300 22 400 11 Q500 0 600 11 Q700 22 800 11 L800 22 L0 22Z" fill="rgba(80,200,100,.16)"/>
+    </svg>
+  </div>
+  <!-- floaters -->
+  <div class="floater" style="width:5px;height:5px;background:#64dc78;left:32%;bottom:14%;animation-delay:0s;"></div>
+  <div class="floater" style="width:4px;height:4px;background:#7ecf6e;left:55%;bottom:10%;animation-delay:2s;"></div>
+  <div class="floater" style="width:5px;height:5px;background:#64dc78;left:72%;bottom:16%;animation-delay:3.5s;"></div>
+  <div class="tw">
+    <div class="ey">Tropical Rainforest</div>
+    <div class="mt">&#128167; <span>Cycles</span></div>
+    <div class="br"></div>
+  </div>
+</div>
+</body>
+</html>
